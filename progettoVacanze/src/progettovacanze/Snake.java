@@ -17,14 +17,18 @@ public class Snake {
     private int posY;
     private boolean dirX;
     private boolean dirY;
+    private boolean dirS;
+    private boolean dirg;
     private int lunghezza;
 
-    public Snake(DatiCondivisi ptrDati, int posX, int posY, boolean dirX, boolean dirY) {
+    public Snake(DatiCondivisi ptrDati, int posX, int posY, boolean dirX, boolean dirY, boolean dirS, boolean dirg) {
         this.ptrDati = ptrDati;
         this.posX = posX;
         this.posY = posY;
         this.dirX = dirX;
         this.dirY = dirY;
+        this.dirS = dirS;
+        this.dirg = dirg;
         this.lunghezza = 1;
     }
 
@@ -72,6 +76,31 @@ public class Snake {
     public void setDirY(boolean dirY) {
         this.dirY = dirY;
     }
+
+    public boolean isDirS() {
+        return dirS;
+    }
+
+    public void setDirS(boolean dirS) {
+        this.dirS = dirS;
+    }
+
+    public boolean isDirg() {
+        return dirg;
+    }
+
+    public void setDirg(boolean dirg) {
+        this.dirg = dirg;
+    }
+
+    public int getLunghezza() {
+        return lunghezza;
+    }
+
+    public void setLunghezza(int lunghezza) {
+        this.lunghezza = lunghezza;
+    }
+    
     
     
     
