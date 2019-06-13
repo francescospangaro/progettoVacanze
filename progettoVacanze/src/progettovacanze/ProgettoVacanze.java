@@ -36,11 +36,11 @@ public class ProgettoVacanze extends PApplet{
         
         swingUser.show();
         ptrDati.waitBlocco();
-        System.out.println("ASD");
         
         wScreen = 40*10;
         hScreen = 40*10;
         
+        thScatola = new ThScatola[40][40];
         for(int i = 0; i < 40; i++){
            for(int j = 0; j<40; j++){
                thScatola[i][j] = new ThScatola(ptrDati, i, j);
@@ -63,18 +63,39 @@ public class ProgettoVacanze extends PApplet{
         }
 
         background(100, 100, 100);
-
+        
         for (int r = 0; r < ptrDati.getNumRighe(); r++) {
             for (int c = 0; c < ptrDati.getNumColonne(); c++) {
+                
+                rect(r+5, c+5, r+12, c+12);
+                
                 if (thScatola[r][c].isMela()) {
-                    drawIncremento(ptrDati.getNumColonne(), ptrDati.getNumRighe());
+                    drawMela(r, c);
                 }
             }
         }
+        
     }
+    
+    /**public void settings() {
+        size(wScreen, hScreen);
+
+        for (int r = 0; r < ptrDati.getNumRighe(); r++) {
+            for (int c = 0; c < ptrDati.getNumColonne(); c++) {
+                thScatola[r][c].start();
+            }
+        }
+        thPallina.start();
+    }*/
+
     
     public void drawIncremento(int numX, int numY){
         
+    }
+    
+    public void drawMela(int numX, int numY){
+        float rad = (9/2);
+        ellipse(numX, numY, rad, rad);
     }
     
 }
