@@ -5,10 +5,68 @@
  */
 package progettovacanze;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Francesco Spangaro
  */
 public class ThPallina extends Thread{
     private DatiCondivisi ptrDati;
+    private Pallina mela;
+    private int xMela;
+    private int yMela;
+
+    public ThPallina(DatiCondivisi ptrDati) {
+        this.ptrDati = ptrDati;
+        this.mela = ptrDati.getPallina();
+        this.xMela = mela.getPosX();
+        this.yMela = mela.getPosY();
+    }
+
+    public ThPallina() {
+    }
+
+    public DatiCondivisi getPtrDati() {
+        return ptrDati;
+    }
+
+    public void setPtrDati(DatiCondivisi ptrDati) {
+        this.ptrDati = ptrDati;
+    }
+
+    public Pallina getMela() {
+        return mela;
+    }
+
+    public void setMela(Pallina mela) {
+        this.mela = mela;
+    }
+
+    public int getxMela() {
+        return xMela;
+    }
+
+    public void setxMela(int xMela) {
+        this.xMela = xMela;
+    }
+
+    public int getyMela() {
+        return yMela;
+    }
+
+    public void setyMela(int yMela) {
+        this.yMela = yMela;
+    }
+    
+    @Override    
+    public void run(){
+        try {
+            Thread.sleep(10);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(ThScatola.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
 }

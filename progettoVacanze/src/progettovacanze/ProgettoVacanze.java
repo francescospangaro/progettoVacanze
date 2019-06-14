@@ -15,9 +15,7 @@ import processing.core.PApplet;
  */
 public class ProgettoVacanze extends PApplet{
         static DatiCondivisi ptrDati;
-        static Caselle caselle;
         static SwingUser swingUser;
-        static Snake snake;
         static ThSnake thSnake;
         static ThPallina thPallina;
         static ThScatola[][] thScatola;
@@ -37,12 +35,19 @@ public class ProgettoVacanze extends PApplet{
         swingUser.show();
         ptrDati.waitBlocco();
         
-        wScreen = 40*10;
-        hScreen = 40*10;
+        wScreen = 40*30;
+        hScreen = 40*15;
         
+        ptrDati.getCaselle().setMela();
+        System.out.println("Mela settata");
+        
+        ptrDati.getCaselle().setSnakeInizio();
+        System.out.println("Gioco iniziato");
+        
+        thPallina = new ThPallina(ptrDati);
         thScatola = new ThScatola[40][40];
         for(int i = 0; i < 40; i++){
-           for(int j = 0; j<40; j++){
+           for(int j = 0; j < 40; j++){
                thScatola[i][j] = new ThScatola(ptrDati, i, j);
            } 
         }
@@ -61,23 +66,26 @@ public class ProgettoVacanze extends PApplet{
         if (!ptrDati.isGioco()) {
             exit();
         }
-
-        background(100, 100, 100);
         
         for (int r = 0; r < ptrDati.getNumRighe(); r++) {
             for (int c = 0; c < ptrDati.getNumColonne(); c++) {
                 
-                rect(r+5, c+5, r+12, c+12);
+                rect(r, c, r*30, c*30);
                 
                 if (thScatola[r][c].isMela()) {
                     drawMela(r, c);
                 }
+                
+                if (thScatola[r][c].isSnake()){
+                    drawSnake(r, c);
+                }
+                
             }
         }
         
     }
     
-    /**public void settings() {
+    public void settings() {
         size(wScreen, hScreen);
 
         for (int r = 0; r < ptrDati.getNumRighe(); r++) {
@@ -86,16 +94,27 @@ public class ProgettoVacanze extends PApplet{
             }
         }
         thPallina.start();
-    }*/
+    }
 
     
     public void drawIncremento(int numX, int numY){
         
     }
     
-    public void drawMela(int numX, int numY){
-        float rad = (9/2);
+    public void drawSnake(int numX, int numY){
+        stroke(0, 0, 0);
+        fill(color(0,0,255));
+        float rad = 19f;
         ellipse(numX, numY, rad, rad);
+        noFill();
+    }
+    
+    public void drawMela(int numX, int numY){
+        stroke(0, 0, 0);
+        fill(color(255,0,0));
+        float rad = 19f;
+        ellipse(numX, numY, rad, rad);
+        noFill();
     }
     
 }

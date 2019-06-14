@@ -14,12 +14,51 @@ public class Casella {
     private int posY;
     private DatiCondivisi ptrDati;
     private boolean mela;
+    private int lunghezza;
+    private int larghezza;
+    private int altezza;
+    private boolean snake;
 
-    public Casella(int posX, int posY, DatiCondivisi ptrDati) {
+    public Casella(int posX, int posY, DatiCondivisi ptrDati, int lunghezza, int larghezza, int altezza) {
         this.posX = posX;
         this.posY = posY;
         this.ptrDati = ptrDati;
         this.mela = false;
+        this.lunghezza = lunghezza;
+        this.larghezza = larghezza;
+        this.altezza = altezza;
+    }
+
+    public boolean getSnake() {
+        return snake;
+    }
+
+    public void setSnake(boolean snake) {
+        this.snake = snake;
+    }
+
+    public int getLunghezza() {
+        return lunghezza;
+    }
+
+    public void setLunghezza(int lunghezza) {
+        this.lunghezza = lunghezza;
+    }
+
+    public int getLarghezza() {
+        return larghezza;
+    }
+
+    public void setLarghezza(int larghezza) {
+        this.larghezza = larghezza;
+    }
+
+    public int getAltezza() {
+        return altezza;
+    }
+
+    public void setAltezza(int altezza) {
+        this.altezza = altezza;
     }
 
     public void setMela(boolean mela){
@@ -55,6 +94,10 @@ public class Casella {
     
     public DatiCondivisi getPtrDati(){
         return this.ptrDati;
+    }
+    
+    public void aggiungiSnake(){
+        
     }
     
 }

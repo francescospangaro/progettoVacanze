@@ -15,22 +15,33 @@ import java.util.logging.Logger;
  */
 public class DatiCondivisi {
     private Pallina pallina;
-    private ThPallina thPallina;
     private Snake snake;
-    private ThSnake thSnake;
     private boolean gioco;
     private Casella[][] array;
     private Caselle caselle;
     private final static int numX = 40;
     private final static int numY = 40;
     private Semaphore blocco;
+    private boolean serpente;
     
-    public DatiCondivisi(Pallina pallina, ThPallina thPallina, Snake snake, ThSnake thSnake) {
+    public DatiCondivisi(Pallina pallina, Snake snake) {
         this.pallina = pallina;
-        this.thPallina = thPallina;
         this.snake = snake;
-        this.thSnake = thSnake;
         this.gioco = true;
+        this.blocco = new Semaphore(0);
+    }
+    
+    public DatiCondivisi() {
+        this.gioco = true;
+        this.pallina = new Pallina();
+        this.array = new Casella[numX][numY];
+        for(int i = 0; i < numX; i++){
+           for(int j = 0; j < numY; j++){
+               this.array[i][j] = new Casella();
+           } 
+        }
+        this.caselle = new Caselle(this);
+        this.snake = new Snake(this);
         this.blocco = new Semaphore(0);
     }
     
@@ -44,6 +55,14 @@ public class DatiCondivisi {
 
     public boolean getMela(int numX, int numY){
         return array[numX][numY].getMela();
+    }
+    
+    public boolean getSerpente(int numX, int numY){
+        return array[numX][numY].getSnake();
+    }
+    
+    public void setSerpente(boolean s){
+        this.serpente = s;
     }
     
     public void setArray(Casella[][] array) {
@@ -62,36 +81,12 @@ public class DatiCondivisi {
         return numY;
     }
 
-    public DatiCondivisi() {
-        this.gioco = true;
-        this.pallina = new Pallina();
-        this.array = new Casella[numX][numY];
-        for(int i = 0; i<numX; i++){
-           for(int j = 0; j<numY; j++){
-               this.array[i][j] = new Casella();
-           } 
-        }
-        this.caselle = new Caselle(this, this.array);
-        this.snake = new Snake(this);
-        this.thPallina = new ThPallina();
-        this.thSnake = new ThSnake();
-        this.blocco = new Semaphore(0);
-    }
-
     public Pallina getPallina() {
         return pallina;
     }
 
     public void setPallina(Pallina pallina) {
         this.pallina = pallina;
-    }
-
-    public ThPallina getThPallina() {
-        return thPallina;
-    }
-
-    public void setThPallina(ThPallina thPallina) {
-        this.thPallina = thPallina;
     }
 
     public Snake getSnake() {
@@ -101,15 +96,7 @@ public class DatiCondivisi {
     public void setSnake(Snake snake) {
         this.snake = snake;
     }
-
-    public ThSnake getThSnake() {
-        return thSnake;
-    }
-
-    public void setThSnake(ThSnake thSnake) {
-        this.thSnake = thSnake;
-    }
-    
+   
     public void IncSnake(){
         
     }
