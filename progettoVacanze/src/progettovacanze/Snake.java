@@ -15,20 +15,20 @@ public class Snake {
     private static final int raggio2 = 19;
     private int posX;
     private int posY;
-    private boolean dirX;
-    private boolean dirY;
+    private boolean dirSu;
+    private boolean dirGiu;
     private boolean dirS;
-    private boolean dirg;
+    private boolean dirD;
     private int lunghezza;
 
     public Snake(DatiCondivisi ptrDati, int posX, int posY, boolean dirX, boolean dirY, boolean dirS, boolean dirg) {
         this.ptrDati = ptrDati;
         this.posX = posX;
         this.posY = posY;
-        this.dirX = dirX;
-        this.dirY = dirY;
+        this.dirSu = dirX;
+        this.dirGiu = dirY;
         this.dirS = dirS;
-        this.dirg = dirg;
+        this.dirD = dirg;
         this.lunghezza = 1;
     }
 
@@ -61,20 +61,20 @@ public class Snake {
         this.posY = posY;
     }
 
-    public boolean isDirX() {
-        return dirX;
+    public boolean isDirSu() {
+        return dirSu;
     }
 
-    public void setDirX(boolean dirX) {
-        this.dirX = dirX;
+    public void setDirSu(boolean dirX) {
+        this.dirSu = dirX;
     }
 
-    public boolean isDirY() {
-        return dirY;
+    public boolean isDirGiu() {
+        return dirGiu;
     }
 
-    public void setDirY(boolean dirY) {
-        this.dirY = dirY;
+    public void setDirGiu(boolean dirY) {
+        this.dirGiu = dirY;
     }
 
     public boolean isDirS() {
@@ -85,12 +85,12 @@ public class Snake {
         this.dirS = dirS;
     }
 
-    public boolean isDirg() {
-        return dirg;
+    public boolean isDirD() {
+        return dirD;
     }
 
-    public void setDirg(boolean dirg) {
-        this.dirg = dirg;
+    public void setDirD(boolean dirg) {
+        this.dirD = dirg;
     }
 
     public int getLunghezza() {

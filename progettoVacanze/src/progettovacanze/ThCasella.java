@@ -12,13 +12,13 @@ import java.util.logging.Logger;
  *
  * @author Francesco Spangaro
  */
-public class ThScatola extends Thread{
+public class ThCasella extends Thread{
     private Casella casella;
     private DatiCondivisi ptrDati;
     private boolean mela;
     private boolean snake;
 
-    public ThScatola(DatiCondivisi ptrDati, int numX, int numY) {
+    public ThCasella(DatiCondivisi ptrDati, int numX, int numY) {
         this.ptrDati = ptrDati;
         if(this.ptrDati.getMela(numX, numY)==true){
             this.mela = true;
@@ -41,7 +41,7 @@ public class ThScatola extends Thread{
         try {
             Thread.sleep(10);
         } catch (InterruptedException ex) {
-            Logger.getLogger(ThScatola.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ThCasella.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     

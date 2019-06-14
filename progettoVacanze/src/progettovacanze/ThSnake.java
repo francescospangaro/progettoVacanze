@@ -14,9 +14,11 @@ import java.util.logging.Logger;
  */
 public class ThSnake extends Thread{
     private DatiCondivisi ptrDati;
+    private SwingUser swing;
 
-    public ThSnake(DatiCondivisi ptrDati) {
+    public ThSnake(DatiCondivisi ptrDati, SwingUser swing) {
         this.ptrDati = ptrDati;
+        this.swing = swing;
     }
 
     public DatiCondivisi getPtrDati() {
@@ -32,7 +34,7 @@ public class ThSnake extends Thread{
         try {
             Thread.sleep(10);
         } catch (InterruptedException ex) {
-            Logger.getLogger(ThScatola.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ThCasella.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

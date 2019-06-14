@@ -17,8 +17,8 @@ public class ProgettoVacanze extends PApplet{
         static DatiCondivisi ptrDati;
         static SwingUser swingUser;
         static ThSnake thSnake;
-        static ThPallina thPallina;
-        static ThScatola[][] thScatola;
+        static ThMela thMela;
+        static ThCasella[][] thCasella;
         static int wScreen;
         static int hScreen;
     
@@ -44,13 +44,14 @@ public class ProgettoVacanze extends PApplet{
         ptrDati.getCaselle().setSnakeInizio();
         System.out.println("Gioco iniziato");
         
-        thPallina = new ThPallina(ptrDati);
-        thScatola = new ThScatola[40][40];
+        thMela = new ThMela(ptrDati);
+        thCasella = new ThCasella[40][40];
         for(int i = 0; i < 40; i++){
            for(int j = 0; j < 40; j++){
-               thScatola[i][j] = new ThScatola(ptrDati, i, j);
+               thCasella[i][j] = new ThCasella(ptrDati, i, j);
            } 
         }
+        thSnake = new ThSnake(ptrDati, swingUser);
         
         PApplet.main(new String[]{"progettovacanze.ProgettoVacanze"});
         
@@ -72,11 +73,11 @@ public class ProgettoVacanze extends PApplet{
                 
                 rect(r, c, r*30, c*30);
                 
-                if (thScatola[r][c].isMela()) {
+                if (thCasella[r][c].isMela()) {
                     drawMela(r, c);
                 }
                 
-                if (thScatola[r][c].isSnake()){
+                if (thCasella[r][c].isSnake()){
                     drawSnake(r, c);
                 }
                 
@@ -90,10 +91,11 @@ public class ProgettoVacanze extends PApplet{
 
         for (int r = 0; r < ptrDati.getNumRighe(); r++) {
             for (int c = 0; c < ptrDati.getNumColonne(); c++) {
-                thScatola[r][c].start();
+                thCasella[r][c].start();
             }
         }
-        thPallina.start();
+        thMela.start();
+        thSnake.start();
     }
 
     

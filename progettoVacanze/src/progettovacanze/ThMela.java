@@ -12,20 +12,20 @@ import java.util.logging.Logger;
  *
  * @author Francesco Spangaro
  */
-public class ThPallina extends Thread{
+public class ThMela extends Thread{
     private DatiCondivisi ptrDati;
     private Pallina mela;
     private int xMela;
     private int yMela;
 
-    public ThPallina(DatiCondivisi ptrDati) {
+    public ThMela(DatiCondivisi ptrDati) {
         this.ptrDati = ptrDati;
         this.mela = ptrDati.getPallina();
         this.xMela = mela.getPosX();
         this.yMela = mela.getPosY();
     }
 
-    public ThPallina() {
+    public ThMela() {
     }
 
     public DatiCondivisi getPtrDati() {
@@ -65,7 +65,7 @@ public class ThPallina extends Thread{
         try {
             Thread.sleep(10);
         } catch (InterruptedException ex) {
-            Logger.getLogger(ThScatola.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ThCasella.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
