@@ -101,6 +101,10 @@ public class Snake {
         this.lunghezza = lunghezza;
     }
     
+    public void incLunghezza(){
+        this.lunghezza++;
+    }
+    
     
     
     

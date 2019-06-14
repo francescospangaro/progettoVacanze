@@ -23,6 +23,7 @@ public class DatiCondivisi {
     private final static int numY = 40;
     private Semaphore blocco;
     private boolean serpente;
+    private int punteggio;
     
     public DatiCondivisi(Pallina pallina, Snake snake) {
         this.pallina = pallina;
@@ -43,6 +44,27 @@ public class DatiCondivisi {
         this.caselle = new Caselle(this);
         this.snake = new Snake(this);
         this.blocco = new Semaphore(0);
+        this.punteggio = 0;
+    }
+
+    public Semaphore getBlocco() {
+        return blocco;
+    }
+
+    public void setBlocco(Semaphore blocco) {
+        this.blocco = blocco;
+    }
+
+    public int getPunteggio() {
+        return punteggio;
+    }
+
+    public void setPunteggio(int punteggio) {
+        this.punteggio = punteggio;
+    }
+    
+    public void incPunteggio(){
+        this.punteggio++;
     }
     
     public int getNumColonne(){
@@ -95,10 +117,6 @@ public class DatiCondivisi {
 
     public void setSnake(Snake snake) {
         this.snake = snake;
-    }
-   
-    public void IncSnake(){
-        
     }
     
     public void waitBlocco(){
