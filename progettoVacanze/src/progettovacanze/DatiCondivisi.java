@@ -14,7 +14,7 @@ import java.util.logging.Logger;
  * @author Francesco Spangaro
  */
 public class DatiCondivisi {
-    private Pallina pallina;
+    private Mela mela;
     private Snake snake;
     private boolean gioco;
     private Casella[][] array;
@@ -25,8 +25,8 @@ public class DatiCondivisi {
     private boolean serpente;
     private int punteggio;
     
-    public DatiCondivisi(Pallina pallina, Snake snake) {
-        this.pallina = pallina;
+    public DatiCondivisi(Mela pallina, Snake snake) {
+        this.mela = pallina;
         this.snake = snake;
         this.gioco = true;
         this.blocco = new Semaphore(0);
@@ -34,14 +34,16 @@ public class DatiCondivisi {
     
     public DatiCondivisi() {
         this.gioco = true;
-        this.pallina = new Pallina();
+        this.mela = new Mela();
         this.array = new Casella[numX][numY];
         for(int i = 0; i < numX; i++){
            for(int j = 0; j < numY; j++){
-               this.array[i][j] = new Casella();
+               this.array[i][j] = new Casella(i*10, j*10, this, 10, 10, 10);
            } 
         }
-        this.caselle = new Caselle(this);
+        this.caselle = new Caselle(this, array);
+        this.caselle.setMela();
+        this.caselle.setSnakeInizio();
         this.snake = new Snake(this);
         this.blocco = new Semaphore(0);
         this.punteggio = 0;
@@ -103,12 +105,12 @@ public class DatiCondivisi {
         return numY;
     }
 
-    public Pallina getPallina() {
-        return pallina;
+    public Mela getMela() {
+        return mela;
     }
 
-    public void setPallina(Pallina pallina) {
-        this.pallina = pallina;
+    public void setMela(Mela pallina) {
+        this.mela = pallina;
     }
 
     public Snake getSnake() {

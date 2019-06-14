@@ -18,22 +18,28 @@ public class ThCasella extends Thread{
     private boolean mela;
     private boolean snake;
 
-    public ThCasella(DatiCondivisi ptrDati, int numX, int numY) {
+    public ThCasella(DatiCondivisi ptrDati, Casella casella) {
         this.ptrDati = ptrDati;
-        if(this.ptrDati.getMela(numX, numY)==true){
-            this.mela = true;
-        }
-        if(this.ptrDati.getSerpente(numX, numY)==true){
-            this.snake = true;
-        }
+        this.casella = casella;
+        this.mela=casella.getMela();
+        this.snake=casella.getSnake();
+        
     }
     
     public boolean isMela(){
         return this.mela;
     }
     
+    public void setMela(){
+        this.mela=true;
+    }
+    
     public boolean isSnake(){
         return this.snake;
+    }
+    
+    public void setSnake(){
+        this.snake = true;
     }
     
     @Override

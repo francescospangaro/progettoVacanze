@@ -14,13 +14,13 @@ import java.util.logging.Logger;
  */
 public class ThMela extends Thread{
     private DatiCondivisi ptrDati;
-    private Pallina mela;
+    private Mela mela;
     private int xMela;
     private int yMela;
 
     public ThMela(DatiCondivisi ptrDati) {
         this.ptrDati = ptrDati;
-        this.mela = ptrDati.getPallina();
+        this.mela = ptrDati.getMela();
         this.xMela = mela.getPosX();
         this.yMela = mela.getPosY();
     }
@@ -36,11 +36,11 @@ public class ThMela extends Thread{
         this.ptrDati = ptrDati;
     }
 
-    public Pallina getMela() {
+    public Mela getMela() {
         return mela;
     }
 
-    public void setMela(Pallina mela) {
+    public void setMela(Mela mela) {
         this.mela = mela;
     }
 

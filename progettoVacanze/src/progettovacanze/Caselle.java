@@ -57,12 +57,44 @@ public class Caselle {
     
     public void setMela(){
         Random rand = new Random();
+        int a = rand.nextInt(numX);
+        int b = rand.nextInt(numY);
         this.caselle[rand.nextInt(numX)][rand.nextInt(numY)].setMela(true);
+        System.out.println("mela settata in coordinate " + a + "-" + b);
+    }
+    
+    public int[] getMela(){
+        int a [] = new int[2];
+        for(int i = 0; i < numX; i++){
+            for(int j = 0; j < numY; j++){
+                if(caselle[i][j].getMela()==true){
+                    System.out.println("La mela c'è");
+                    a[0] = i;
+                    a[1] = j;
+                    break;
+                }
+            }
+        }
+        return(a);
+    }
+    
+    public int[] getTestaSnake(){
+        int a [] = new int[2];
+        for(int i = 0; i < numX; i++){
+            for(int j = 0; j < numY; j++){
+                if(caselle[i][j].getSnake()==true){
+                    a[0] = i;
+                    a[1] = j;
+                    break;
+                }
+            }
+        }
+        return(a);
     }
     
     public void setSnakeInizio(){
         Random rand = new Random();
-        this.caselle[rand.nextInt(numX)][rand.nextInt(numY)].setSnake(true);
+        this.caselle[rand.nextInt(numX)+1][rand.nextInt(numY)+1].setSnake(true);
     }
     
     

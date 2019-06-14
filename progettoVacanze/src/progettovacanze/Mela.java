@@ -9,20 +9,20 @@ package progettovacanze;
  *
  * @author Francesco Spangaro
  */
-public class Pallina {
+public class Mela {
     private int posX;
     private int posY;
     private static final int raggio1 = 19;
     private static final int raggio2 = 19;
     private DatiCondivisi ptrDati;
 
-    public Pallina(int posX, int posY, DatiCondivisi ptrDati) {
+    public Mela(int posX, int posY, DatiCondivisi ptrDati) {
         this.posX = posX;
         this.posY = posY;
         this.ptrDati = ptrDati;
     }
 
-    public Pallina() {
+    public Mela() {
     }
 
     public int getPosX() {

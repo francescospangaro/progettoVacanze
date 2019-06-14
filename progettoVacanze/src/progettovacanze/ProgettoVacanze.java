@@ -35,27 +35,25 @@ public class ProgettoVacanze extends PApplet{
         swingUser.show();
         ptrDati.waitBlocco();
         
-        wScreen = 40*30;
+        wScreen = 40*15;
         hScreen = 40*15;
         
-        ptrDati.getCaselle().setMela();
-        System.out.println("Mela settata");
-        
-        ptrDati.getCaselle().setSnakeInizio();
-        System.out.println("Gioco iniziato");
-        
         thMela = new ThMela(ptrDati);
+        thSnake = new ThSnake(ptrDati, swingUser);
+        
+        thMela.setxMela(ptrDati.getCaselle().getMela()[0]);
+        thMela.setyMela(ptrDati.getCaselle().getMela()[1]);
+        
+        thSnake.setPosXS(ptrDati.getCaselle().getTestaSnake()[0]);
+        thSnake.setPosYS(ptrDati.getCaselle().getTestaSnake()[1]);
+        
         thCasella = new ThCasella[40][40];
         for(int i = 0; i < 40; i++){
            for(int j = 0; j < 40; j++){
-               thCasella[i][j] = new ThCasella(ptrDati, i, j);
+               thCasella[i][j] = new ThCasella(ptrDati, ptrDati.getArray()[i][j]);
            } 
         }
-        thSnake = new ThSnake(ptrDati, swingUser);
-        
         PApplet.main(new String[]{"progettovacanze.ProgettoVacanze"});
-        
-        
     }
     
     public void setup() {
@@ -71,13 +69,14 @@ public class ProgettoVacanze extends PApplet{
         for (int r = 0; r < ptrDati.getNumRighe(); r++) {
             for (int c = 0; c < ptrDati.getNumColonne(); c++) {
                 
-                rect(r, c, r*30, c*30);
+                rect(r*15, c*15, r*15, c*15);
                 
-                if (thCasella[r][c].isMela()) {
+                
+                if (ptrDati.getArray()[r][c].getMela()==true) {
                     drawMela(r, c);
                 }
                 
-                if (thCasella[r][c].isSnake()){
+                if (ptrDati.getArray()[r][c].getSnake()==true){
                     drawSnake(r, c);
                 }
                 
@@ -85,6 +84,8 @@ public class ProgettoVacanze extends PApplet{
         }
         
     }
+    
+    
     
     public void settings() {
         size(wScreen, hScreen);
@@ -107,7 +108,7 @@ public class ProgettoVacanze extends PApplet{
         stroke(0, 0, 0);
         fill(color(0,0,255));
         float rad = 19f;
-        ellipse(numX, numY, rad, rad);
+        ellipse(ptrDati.getSnake().getPosX(), ptrDati.getSnake().getPosY(), rad, rad);
         noFill();
     }
     
@@ -115,7 +116,7 @@ public class ProgettoVacanze extends PApplet{
         stroke(0, 0, 0);
         fill(color(255,0,0));
         float rad = 19f;
-        ellipse(numX, numY, rad, rad);
+        ellipse(ptrDati.getArray()[numX][numY].getPosX(), ptrDati.getArray()[numX][numY].getPosY(), rad, rad);
         noFill();
     }
     

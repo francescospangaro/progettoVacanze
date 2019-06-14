@@ -15,10 +15,28 @@ import java.util.logging.Logger;
 public class ThSnake extends Thread{
     private DatiCondivisi ptrDati;
     private SwingUser swing;
+    private int posXS;
+    private int posYS;
 
     public ThSnake(DatiCondivisi ptrDati, SwingUser swing) {
         this.ptrDati = ptrDati;
         this.swing = swing;
+    }
+
+    public int getPosXS() {
+        return posXS;
+    }
+
+    public void setPosXS(int posXS) {
+        this.posXS = posXS;
+    }
+
+    public int getPosYS() {
+        return posYS;
+    }
+
+    public void setPosYS(int posYS) {
+        this.posYS = posYS;
     }
 
     public DatiCondivisi getPtrDati() {
