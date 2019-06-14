@@ -11,8 +11,8 @@ package progettovacanze;
  */
 public class Snake {
     private DatiCondivisi ptrDati;
-    private static final int raggio1 = 19;
-    private static final int raggio2 = 19;
+    private static final int raggio1 = 10;
+    private static final int raggio2 = 10;
     private int posX;
     private int posY;
     private boolean dirSu;

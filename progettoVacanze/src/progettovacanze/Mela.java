@@ -12,8 +12,8 @@ package progettovacanze;
 public class Mela {
     private int posX;
     private int posY;
-    private static final int raggio1 = 19;
-    private static final int raggio2 = 19;
+    private static final int raggio1 = 10;
+    private static final int raggio2 = 10;
     private DatiCondivisi ptrDati;
 
     public Mela(int posX, int posY, DatiCondivisi ptrDati) {

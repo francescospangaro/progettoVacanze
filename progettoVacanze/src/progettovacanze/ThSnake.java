@@ -50,7 +50,7 @@ public class ThSnake extends Thread{
     @Override
     public void run(){
         try {
-            Thread.sleep(10);
+            Thread.sleep(1);
         } catch (InterruptedException ex) {
             Logger.getLogger(ThCasella.class.getName()).log(Level.SEVERE, null, ex);
         }

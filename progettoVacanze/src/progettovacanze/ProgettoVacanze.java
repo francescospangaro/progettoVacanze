@@ -107,7 +107,7 @@ public class ProgettoVacanze extends PApplet{
     public void drawSnake(int numX, int numY){
         stroke(0, 0, 0);
         fill(color(0,0,255));
-        float rad = 14f;
+        float rad = 10f;
         ellipse(ptrDati.getSnake().getPosX(), ptrDati.getSnake().getPosY(), rad, rad);
         noFill();
     }
@@ -115,7 +115,7 @@ public class ProgettoVacanze extends PApplet{
     public void drawMela(int numX, int numY){
         stroke(0, 0, 0);
         fill(color(255,0,0));
-        float rad = 14f;
+        float rad = 10f;
         ellipse(ptrDati.getArray()[numX][numY].getPosX(), ptrDati.getArray()[numX][numY].getPosY(), rad, rad);
         noFill();
     }
