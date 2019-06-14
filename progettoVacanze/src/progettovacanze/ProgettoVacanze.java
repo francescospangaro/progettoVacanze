@@ -35,8 +35,8 @@ public class ProgettoVacanze extends PApplet{
         swingUser.show();
         ptrDati.waitBlocco();
         
-        wScreen = 40*15;
-        hScreen = 40*15;
+        wScreen = 600;
+        hScreen = 600;
         
         thMela = new ThMela(ptrDati);
         thSnake = new ThSnake(ptrDati, swingUser);
@@ -107,15 +107,15 @@ public class ProgettoVacanze extends PApplet{
     public void drawSnake(int numX, int numY){
         stroke(0, 0, 0);
         fill(color(0,0,255));
-        float rad = 10f;
-        ellipse(ptrDati.getSnake().getPosX(), ptrDati.getSnake().getPosY(), rad, rad);
+        float rad = 15f;
+        ellipse(ptrDati.getArray()[numX][numY].getPosX(), ptrDati.getArray()[numX][numY].getPosY(), rad, rad);
         noFill();
     }
     
     public void drawMela(int numX, int numY){
         stroke(0, 0, 0);
         fill(color(255,0,0));
-        float rad = 10f;
+        float rad = 15f;
         ellipse(ptrDati.getArray()[numX][numY].getPosX(), ptrDati.getArray()[numX][numY].getPosY(), rad, rad);
         noFill();
     }
