@@ -60,7 +60,6 @@ public class Caselle {
         int a = rand.nextInt(numX);
         int b = rand.nextInt(numY);
         this.caselle[rand.nextInt(numX)][rand.nextInt(numY)].setMela(true);
-        System.out.println("mela settata in coordinate " + a + "-" + b);
     }
     
     public int[] getMela(){
@@ -68,7 +67,6 @@ public class Caselle {
         for(int i = 0; i < numX; i++){
             for(int j = 0; j < numY; j++){
                 if(caselle[i][j].getMela()==true){
-                    System.out.println("La mela c'è");
                     a[0] = i;
                     a[1] = j;
                     break;
