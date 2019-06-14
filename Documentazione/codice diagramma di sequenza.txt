@@ -1,0 +1,71 @@
+@startuml
+
+actor Utente
+participant ProgettoVacanze
+participant DatiCondivisi
+participant Casella
+participant Caselle
+participant Mela
+participant Snake
+participant SwingUser
+participant ThMela
+participant ThCasella
+participant ThSnake
+
+
+Utente -> ProgettoVacanze : Avvio
+activate ProgettoVacanze
+ProgettoVacanze -> DatiCondivisi : new DatiCondivisi
+DatiCondivisi -> Casella : new Casella[][]
+DatiCondivisi -> Caselle : new Caselle
+DatiCondivisi -> Mela : new Mela
+DatiCondivisi -> Snake : new Snake
+ProgettoVacanze -> SwingUser : new SwingUser
+activate SwingUser
+ProgettoVacanze -> DatiCondivisi : waitSemaforo
+deactivate ProgettoVacanze
+Utente -> SwingUser : Start
+SwingUser -> DatiCondivisi : signalSemaforo
+DatiCondivisi -> ProgettoVacanze : signalSemaforo
+activate ProgettoVacanze
+ProgettoVacanze -> ThMela : new ThMela(dati)
+ProgettoVacanze -> ThCasella : new ThCasella[][]
+ProgettoVacanze -> ThSnake : new ThSnake(dati)
+ProgettoVacanze -> ProgettoVacanze : disegna tabella
+ProgettoVacanze -> ProgettoVacanze : disegna mela
+ProgettoVacanze -> ProgettoVacanze : disegna serpente
+ProgettoVacanze -> ThCasella : start()
+activate ThCasella
+ProgettoVacanze -> ThMela : start()
+activate ThMela
+ProgettoVacanze -> ThSnake : start()
+activate ThSnake
+Utente -> SwingUser : cambio direzione
+SwingUser -> ThSnake : direzione cambiata
+ThSnake -> Snake : nuove coordinate
+Snake -> ProgettoVacanze : ridisegno snake
+ThSnake -> ThMela : controllo coordinate
+ThSnake -> ThSnake : stesse coordinate di ThMela
+ThSnake -> Snake : incLunghezza()
+ThSnake -> DatiCondivisi : incPunteggio()
+DatiCondivisi -> ProgettoVacanze : aggiornamento
+ProgettoVacanze -> ProgettoVacanze : ridisegno mela
+ProgettoVacanze -> DatiCondivisi : nuove coordinate mela
+DatiCondivisi -> Mela : nuove coordinate mela
+DatiCondivisi -> ThMela : nuove coordinate mela
+ThSnake -> ThCasella : coordinate diverse, variabile snake true
+ThSnake -> DatiCondivisi : isGioco = false
+DatiCondivisi -> ProgettoVacanze : isGioco = false
+ProgettoVacanze -> ThCasella : exit
+deactivate ThCasella
+ProgettoVacanze -> ThMela : exit
+deactivate ThMela
+ProgettoVacanze -> ThSnake : exit
+deactivate ThSnake
+ProgettoVacanze -> SwingUser : exit
+deactivate SwingUser
+ProgettoVacanze -> Utente : informa punteggio
+ProgettoVacanze -> ProgettoVacanze : exit
+deactivate ProgettoVacanze
+
+@enduml
