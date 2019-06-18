@@ -111,8 +111,8 @@ public class DatiCondivisi {
         return mela;
     }
 
-    public void setMela(Mela pallina) {
-        this.mela = pallina;
+    public void setMela(Mela mela) {
+        this.mela = mela;
     }
 
     public Snake getSnake() {

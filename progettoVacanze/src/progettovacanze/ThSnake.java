@@ -48,10 +48,38 @@ public class ThSnake extends Thread{
     @Override
     public void run(){
         this.ptrDati.getSnake().setDirGiu(true);
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(ThSnake.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println("Inizio");
         while(this.ptrDati.isGioco()){
             if(this.ptrDati.getSnake().isDirGiu()){
-                
+                this.ptrDati.getSnake().setDirGiu(true);
+                this.ptrDati.getSnake().setDirSu(false);
+                this.ptrDati.getSnake().setDirS(false);
+                this.ptrDati.getSnake().setDirD(false);
             }
+            if(this.ptrDati.getSnake().isDirSu()){
+                this.ptrDati.getSnake().setDirSu(true);
+                this.ptrDati.getSnake().setDirGiu(false);
+                this.ptrDati.getSnake().setDirS(false);
+                this.ptrDati.getSnake().setDirD(false);
+            }
+            if(this.ptrDati.getSnake().isDirD()){
+                this.ptrDati.getSnake().setDirD(true);
+                this.ptrDati.getSnake().setDirGiu(false);
+                this.ptrDati.getSnake().setDirSu(false);
+                this.ptrDati.getSnake().setDirS(false);
+            }
+            if(this.ptrDati.getSnake().isDirS()){
+                this.ptrDati.getSnake().setDirS(true);
+                this.ptrDati.getSnake().setDirSu(false);
+                this.ptrDati.getSnake().setDirGiu(false);
+                this.ptrDati.getSnake().setDirD(false);
+            }
+            
         }
     }
 }

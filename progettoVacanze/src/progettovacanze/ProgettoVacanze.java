@@ -66,8 +66,8 @@ public class ProgettoVacanze extends PApplet{
             exit();
         }
         
-        for (int r = 0; r < ptrDati.getNumRighe(); r++) {
-            for (int c = 0; c < ptrDati.getNumColonne(); c++) {
+        for (int r = 0; r < ptrDati.getNumRighe()-1; r++) {
+            for (int c = 0; c < ptrDati.getNumColonne()-1; c++) {
                 
                 rect(r*15, c*15, r*15, c*15);
                 fill(color(255, 255, 255));
@@ -80,9 +80,29 @@ public class ProgettoVacanze extends PApplet{
                     drawSnake(r, c);
                 }
                 
-            }
+                if((ptrDati.getArray()[r][c].getMela()==true)&&(ptrDati.getArray()[r][c].getSnake()==true)){
+                    drawIncremento(r, c);
+                }
+                
+                if(ptrDati.getSnake().isDirSu()){
+                    drawSnake(r-1, c);
+                }
+                
+                if(ptrDati.getSnake().isDirGiu()){
+                    drawSnake(r+1, c);
+                }
+                
+                if(ptrDati.getSnake().isDirD()){
+                    drawSnake(r, c-1);
+                }
+                
+                if(ptrDati.getSnake().isDirS()){
+                    drawSnake(r, c+1);
+                }
+                
+            }  
             
-        }
+        } 
         
     }
     
@@ -102,7 +122,15 @@ public class ProgettoVacanze extends PApplet{
 
     
     public void drawIncremento(int numX, int numY){
-        
+        stroke(0, 0, 0);
+        fill(color(0,0,255));
+        float rad = 13f;
+        int x = ptrDati.getXCentro(numX, numY);
+        int y = ptrDati.getYCentro(numX, numY);
+        ellipse((x-10), y, rad, rad);
+        noFill();
+        /* */
+        this.ptrDati.getCaselle().setMela();
     }
     
     public void drawSnake(int numX, int numY){
@@ -111,7 +139,6 @@ public class ProgettoVacanze extends PApplet{
         float rad = 13f;
         int x = ptrDati.getXCentro(numX, numY);
         int y = ptrDati.getYCentro(numX, numY);
-        
         ellipse(x, y, rad, rad);
         noFill();
     }

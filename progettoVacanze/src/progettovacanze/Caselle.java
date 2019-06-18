@@ -16,10 +16,12 @@ public class Caselle {
     private static final int numX = 40;
     private DatiCondivisi ptrDati;
     private Casella[][] caselle;
+    private int inc;
 
     public Caselle(DatiCondivisi ptrDati, Casella Caselle[][]) {
         this.ptrDati = ptrDati;
         this.caselle = Caselle;
+        this.inc = 1;
     }
     
     public Caselle(DatiCondivisi ptrDati){
@@ -93,6 +95,31 @@ public class Caselle {
     public void setSnakeInizio(){
         Random rand = new Random();
         this.caselle[rand.nextInt(numX-2)+2][rand.nextInt(numY-2)+2].setSnake(true);
+    }
+    
+    public void incSnake(int numX, int numY){
+        if(numY == 39){
+            this.caselle[numX][numY-inc].setSnake(true);
+        }
+        else if(numX == 39){
+            this.caselle[numX-inc][numY].setSnake(true);
+        }
+    }
+    
+    public void snakeSu(int numX, int numY){
+        this.caselle[numX][numY+1].setSnake(true);
+    }
+    
+    public void snakeGiu(int numX, int numY){
+        this.caselle[numX][numY-1].setSnake(true);
+    }
+    
+    public void snakeD(int numX, int numY){
+        this.caselle[numX-1][numY].setSnake(true);
+    }
+    
+    public void snakeS(int numX, int numY){
+        this.caselle[numX+1][numY].setSnake(true);
     }
     
     
