@@ -14,13 +14,11 @@ import java.util.logging.Logger;
  */
 public class ThSnake extends Thread{
     private DatiCondivisi ptrDati;
-    private SwingUser swing;
     private int posXS;
     private int posYS;
 
-    public ThSnake(DatiCondivisi ptrDati, SwingUser swing) {
+    public ThSnake(DatiCondivisi ptrDati) {
         this.ptrDati = ptrDati;
-        this.swing = swing;
     }
 
     public int getPosXS() {
@@ -49,10 +47,11 @@ public class ThSnake extends Thread{
     
     @Override
     public void run(){
-        try {
-            Thread.sleep(1);
-        } catch (InterruptedException ex) {
-            Logger.getLogger(ThCasella.class.getName()).log(Level.SEVERE, null, ex);
+        this.ptrDati.getSnake().setDirGiu(true);
+        while(this.ptrDati.isGioco()){
+            if(this.ptrDati.getSnake().isDirGiu()){
+                
+            }
         }
     }
 }

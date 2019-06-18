@@ -27,7 +27,7 @@ public class Caselle {
         this.caselle = new Casella[40][40];
         for(int i = 0; i < 40; i++){
             for(int j = 0; j < 40; j++){
-                this.caselle[i][j] = new Casella(i*20, j*20, this.ptrDati, 20, 20, 20);
+                this.caselle[i][j] = new Casella(i*10, j*10, this.ptrDati, 10, 10, 10, (i*10)+5, (j*10)+5);
                 this.caselle[i][j].setMela(false);
                 this.caselle[i][j].setSnake(false);
             }
@@ -57,9 +57,9 @@ public class Caselle {
     
     public void setMela(){
         Random rand = new Random();
-        int a = rand.nextInt(numX);
-        int b = rand.nextInt(numY);
-        this.caselle[rand.nextInt(numX)][rand.nextInt(numY)].setMela(true);
+        int a = rand.nextInt(numX-2)+2;
+        int b = rand.nextInt(numY-2)+2;
+        this.caselle[a][b].setMela(true);
     }
     
     public int[] getMela(){
@@ -92,7 +92,7 @@ public class Caselle {
     
     public void setSnakeInizio(){
         Random rand = new Random();
-        this.caselle[rand.nextInt(numX)+1][rand.nextInt(numY)+1].setSnake(true);
+        this.caselle[rand.nextInt(numX-2)+2][rand.nextInt(numY-2)+2].setSnake(true);
     }
     
     

@@ -36,6 +36,22 @@ public class Snake {
         this.ptrDati = ptrDati;
         this.lunghezza = 1;
     }
+    
+    public void setDirSu(boolean dirSu){
+        this.dirSu = dirSu;
+    }
+    
+    public void setDirGiu(boolean dirGiu){
+        this.dirGiu = dirGiu;
+    }
+    
+    public void setDirS(boolean dirS){
+        this.dirS = dirS;
+    }
+    
+    public void setDirD(boolean dirD){
+        this.dirD = dirD;
+    }
 
     public DatiCondivisi getPtrDati() {
         return ptrDati;
@@ -65,32 +81,16 @@ public class Snake {
         return dirSu;
     }
 
-    public void setDirSu(boolean dirX) {
-        this.dirSu = dirX;
-    }
-
     public boolean isDirGiu() {
         return dirGiu;
-    }
-
-    public void setDirGiu(boolean dirY) {
-        this.dirGiu = dirY;
     }
 
     public boolean isDirS() {
         return dirS;
     }
 
-    public void setDirS(boolean dirS) {
-        this.dirS = dirS;
-    }
-
     public boolean isDirD() {
         return dirD;
-    }
-
-    public void setDirD(boolean dirg) {
-        this.dirD = dirg;
     }
 
     public int getLunghezza() {

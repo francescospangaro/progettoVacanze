@@ -39,7 +39,7 @@ public class ProgettoVacanze extends PApplet{
         hScreen = 600;
         
         thMela = new ThMela(ptrDati);
-        thSnake = new ThSnake(ptrDati, swingUser);
+        thSnake = new ThSnake(ptrDati);
         
         thMela.setxMela(ptrDati.getCaselle().getMela()[0]);
         thMela.setyMela(ptrDati.getCaselle().getMela()[1]);
@@ -70,7 +70,7 @@ public class ProgettoVacanze extends PApplet{
             for (int c = 0; c < ptrDati.getNumColonne(); c++) {
                 
                 rect(r*15, c*15, r*15, c*15);
-                
+                fill(color(255, 255, 255));
                 
                 if (ptrDati.getArray()[r][c].getMela()==true) {
                     drawMela(r, c);
@@ -81,6 +81,7 @@ public class ProgettoVacanze extends PApplet{
                 }
                 
             }
+            
         }
         
     }
@@ -107,16 +108,21 @@ public class ProgettoVacanze extends PApplet{
     public void drawSnake(int numX, int numY){
         stroke(0, 0, 0);
         fill(color(0,0,255));
-        float rad = 15f;
-        ellipse(ptrDati.getArray()[numX][numY].getPosX(), ptrDati.getArray()[numX][numY].getPosY(), rad, rad);
+        float rad = 13f;
+        int x = ptrDati.getXCentro(numX, numY);
+        int y = ptrDati.getYCentro(numX, numY);
+        
+        ellipse(x, y, rad, rad);
         noFill();
     }
     
     public void drawMela(int numX, int numY){
         stroke(0, 0, 0);
         fill(color(255,0,0));
-        float rad = 15f;
-        ellipse(ptrDati.getArray()[numX][numY].getPosX(), ptrDati.getArray()[numX][numY].getPosY(), rad, rad);
+        float rad = 13f;
+        int x = ptrDati.getXCentro(numX, numY);
+        int y = ptrDati.getYCentro(numX, numY);
+        ellipse(x, y, rad, rad);
         noFill();
     }
     

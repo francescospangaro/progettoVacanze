@@ -38,9 +38,11 @@ public class DatiCondivisi {
         this.array = new Casella[numX][numY];
         for(int i = 0; i < numX; i++){
            for(int j = 0; j < numY; j++){
-               this.array[i][j] = new Casella(i*10, j*10, this, 10, 10, 10);
+               this.array[i][j] = new Casella(i*10, j*10, this, 10, 10, 10, (i*10)+5, (j*10)+5);
+               System.out.println("Coordinate casella: " + j + ", " + i);
            } 
         }
+        
         this.caselle = new Caselle(this, array);
         this.caselle.setMela();
         this.caselle.setSnakeInizio();
@@ -141,5 +143,12 @@ public class DatiCondivisi {
         this.gioco = gioco;
     }
     
+    public int getXCentro(int numX, int numY){
+        return this.array[numX][numY].getCentroX();
+    }
+    
+    public int getYCentro(int numX, int numY){
+        return this.array[numX][numY].getCentroY();
+    }
     
 }
